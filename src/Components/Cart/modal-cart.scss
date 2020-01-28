@@ -1,0 +1,161 @@
+@import "~bootstrap/scss/bootstrap";
+
+@mixin Overlay{
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #626263d4;
+  z-index: 100;
+  overflow: hidden;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+
+  @-webkit-keyframes opacity1 {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-moz-keyframes opacity1 {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-o-keyframes opacity1 {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes opacity1 {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+@mixin Modal{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  margin-right: auto;
+  margin: auto;
+  padding: 0px;
+  /* transform: translate(-50%, -50%); */
+  /*opacity:0;*/
+  animation:opacity1 .9s;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  height: auto;
+  width: auto;
+  background-color: white;
+  box-shadow: 0 14px 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+.article_header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  align-items: baseline;
+  button{
+    @include button-outline-variant(rgba(24, 186, 98, 0.89));
+    @include border-radius(5px);
+    @include font-size(18px);
+  }
+}
+/*************************   Add new artical modal form *********************************/
+@-webkit-keyframes opacity1 {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes opacity1 {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes opacity1 {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes opacity1 {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.Modal {
+  @include Modal;
+  max-width: 100%;
+  min-height: 200px;
+}
+
+/************************* User modal *******************************/
+.modal-overlay {
+  @include Overlay;
+  .Modal {
+    @include Modal;
+    min-height: 70px;
+    max-height: 90%;
+    max-width: 100%;
+    min-width: 200px;
+    .srv-validation-message{
+      color: red;
+    }
+    input[type=search]::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+    }
+    header{
+      h2{
+        color: #6c757d;
+      }
+    }
+    .add {
+      $background: #800;
+      @include button-variant(#ffd650, #c5c5c5);
+      color: #363636;
+      font-weight: 500;
+      @include button-size(10px, 20px, 16px, 16px, 3);
+      &:disabled {
+        color: #353333;
+        font-weight: normal;
+      }
+    }
+
+  }
+}
+.rt-tr[data-qnt="0"]{
+  display: none;
+}
+.rt-tr[data-qnt="-1"]{
+  .rt-expander{
+    visibility: hidden;
+  }
+  .rt-expandable{
+    cursor: text;
+  }
+}
+
+/*****************************************************************************/
+.modal-settings{
+  display: flex;
+  flex-direction: column;
+  form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    h3,h4{
+      text-align: center;
+    }
+    h3{
+      border-bottom: 1px solid #dee2e6;
+      padding-bottom: 20px;
+    }
+    h4{
+      padding-bottom: 15px;
+    }
+    .input-group{
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
